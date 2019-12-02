@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import PreviewFrame from '../PreviewFrame';
 import HistoryTable from '../HistoryTable';
-import { checkHandle, getHistory, deleteLink } from '../../../backend/backend';
+import { checkHandle, getHistory } from '../../../backend/backend';
 import './Admin.css';
 
 export default function Admin() {
@@ -21,9 +21,6 @@ export default function Admin() {
   useEffect(() => {
     handleAddLink();
   }, []);
-  const handleNewCheck = async () => {
-    if (inputValue) window.location.replace(`/handle/${inputValue}`);
-  };
 
   const handleAddLink = async () => {
     try {
@@ -33,14 +30,17 @@ export default function Admin() {
       if (!text || text == '') return;
 
       const result = await checkHandle(text);
+      setDisplay(result);
 
-      updateDisplay(result);
       let lastHistory = await getHistory();
-      updateHistory(lastHistory);
-      //setInputValue('');
+      setHistory(lastHistory);
     } catch (error) {
       console.error('Error on adding link to db');
     }
+  };
+
+  const handleNewCheck = async () => {
+    if (inputValue) window.location.replace(`/handle/${inputValue}`);
   };
 
   const handleChange = ({ which, target, keyCode }) => {
@@ -49,14 +49,6 @@ export default function Admin() {
       return;
     }
     setInputValue(target.value);
-  };
-
-  const updateDisplay = results => {
-    setDisplay(results);
-  };
-
-  const updateHistory = results => {
-    setHistory(results);
   };
 
   return (
