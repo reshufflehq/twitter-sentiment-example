@@ -1,0 +1,20 @@
+.bg-search {
+  background-image: url('../../assets/night.jpg');
+  background-repeat: no-repeat;
+  height: 500px;
+  background-position: center;
+  background-color: #cccccc;
+  background-size: cover;
+  position: relative;
+}
+
+.search-title {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue,
+    Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;
+}

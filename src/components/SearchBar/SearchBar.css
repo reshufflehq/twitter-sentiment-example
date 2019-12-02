@@ -1,0 +1,23 @@
+.search-bar-wrapper {
+  position: absolute;
+  top: 65%;
+  left: 10%;
+  width: 70%;
+}
+
+.search-btn {
+  background-color: rgb(248, 216, 205);
+  color: black;
+  border: none;
+}
+
+.search-btn:hover {
+  background-color: rgb(247, 195, 176);
+  color: black;
+  border: none;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(247, 181, 144, 0.25);
+  border-color: rgb(248, 216, 205);
+}

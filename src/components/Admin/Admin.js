@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import PreviewFrame from '../PreviewFrame';
 import HistoryTable from '../HistoryTable';
+import SearchContainer from '../SearchContainer/SearchContainer';
 import { checkHandle, getHistory } from '../../../backend/backend';
 import './Admin.css';
 
@@ -53,31 +54,7 @@ export default function Admin() {
 
   return (
     <Container className='mt-4 mb-5'>
-      <Row>
-        <Col className='col-md-7 col-sm-10'>
-          <h2 className='pt-4 pb-4'>
-            How rude are the following person`s Tweets?
-          </h2>
-          <Row className='mr-0 ml-0 pb-4'>
-            <Col className='pl-0 pr-0'>
-              <Form.Control
-                as='input'
-                type='text'
-                placeholder='Enter Twitter Handle'
-                className='input-control'
-                value={inputValue}
-                onChange={handleChange}
-                onKeyDown={handleChange}
-              />
-            </Col>
-            <Col className='col-1 pl-1 pr-0'>
-              <Button onClick={handleNewCheck} className='url-add'>
-                Check
-              </Button>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <SearchContainer />
       <Row>
         <Col>
           <PreviewFrame value={display}></PreviewFrame>
