@@ -3,15 +3,12 @@ import '@reshuffle/code-transform/macro';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 
-export default function PreviewFrame(props) {
+export default function SearchResult({ result }) {
+  const { details, totals } = result;
   const items = [];
-  let summey = null;
-  if (
-    props.value.details &&
-    props.value.details.length &&
-    props.value.details.length > 0
-  ) {
-    const details = props.value.details;
+  let toxicityLevel = null;
+
+  if (details && details.length && details.length > 0) {
     for (let index = 0; index < details.length; index++) {
       const element = details[index];
       if (Array.isArray(element)) {
@@ -31,12 +28,12 @@ export default function PreviewFrame(props) {
         items.push(<li key={index}> {element} </li>);
       }
     }
-    summey = `User average toxicity level ${props.value.totals.tox}%`;
+    toxicityLevel = `User average toxicity level ${totals.tox}%`;
   }
 
   return (
     <Container>
-      <b>{summey}</b>
+      <b>{toxicityLevel}</b>
       <br />
       <br />
       {items}
