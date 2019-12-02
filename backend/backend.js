@@ -22,13 +22,15 @@ export async function getHistory() {
 
 /* @expose */
 export async function checkHandle(handle) {
+  let cleanHandle = handle.toLowerCase();
+  cleanHandle = cleanHandle.replace(/[|&;$%@"<>()+,]/g, '');
   //try to hit cache
-  let cache = await getCacheAnalysis(handle);
+  let cache = await getCacheAnalysis(cleanHandle);
   if (cache) {
     return cache;
   }
 
-  const results = await getTweets(handle);
+  const results = await getTweets(cleanHandle);
   let totalSentimentScore = 0;
   let totalToxicScore = 0;
   let tweetsReviewed = 0;
@@ -50,7 +52,7 @@ export async function checkHandle(handle) {
   }
   analysis.totals.tox = totalToxicScore / tweetsReviewed;
   analysis.totals.sentiment = totalSentimentScore / tweetsReviewed;
-  cacheAnalysis(handle, analysis);
+  if (analysis.totals.tox) cacheAnalysis(cleanHandle, analysis);
   return analysis;
 }
 
