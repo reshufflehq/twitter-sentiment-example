@@ -9,8 +9,7 @@ const url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 
 const token = process.env.TWITTER_DEV_KEY;
 const Gtoken = process.env.GOOGLE_DEV_KEY;
-const perspectiveUrl =
-  `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${Gtoken}`;
+const perspectiveUrl = `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${Gtoken}`;
 
 const allKeysQuery = db.Q.filter(db.Q.key.startsWith('handle/'));
 
@@ -24,7 +23,7 @@ export async function getHistory() {
 /* @expose */
 export async function checkHandle(handle) {
   //try to hit cache
-  let cache = await getCacheAanalysis(handle);
+  let cache = await getCacheAnalysis(handle);
   if (cache) {
     return cache;
   }
@@ -51,17 +50,17 @@ export async function checkHandle(handle) {
   }
   analysis.totals.tox = totalToxicScore / tweetsReviewed;
   analysis.totals.sentiment = totalSentimentScore / tweetsReviewed;
-  cacheAanalysis(handle, analysis);
+  cacheAnalysis(handle, analysis);
   return analysis;
 }
 
-async function cacheAanalysis(key, analysis) {
+async function cacheAnalysis(key, analysis) {
   var response = await db.update(`handle/${key}`, () => {
     return analysis;
   });
 }
 
-async function getCacheAanalysis(key) {
+async function getCacheAnalysis(key) {
   const result = await db.get(`handle/${key}`);
   return result;
 }
@@ -71,14 +70,14 @@ function json(response) {
 }
 
 async function getToxicity(text) {
-  var regtext = text.replace(/"/g, `'`);
+  var regex = text.replace(/"/g, `'`);
   const results = await fetch(perspectiveUrl, {
     method: 'post',
     headers: {
       'content-type': 'application/json',
     },
     body: `{
-      "comment":{text: "${regtext}"},
+      "comment":{text: "${regex}"},
       "languages": ["en"],
       "requestedAttributes":{SEVERE_TOXICITY:{}}, 
       }`,
