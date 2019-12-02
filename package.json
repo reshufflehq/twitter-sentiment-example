@@ -10,21 +10,25 @@
     "fullstack"
   ],
   "dependencies": {
-    "@reshuffle/code-transform": "0.0.3",
-    "@reshuffle/db": "^0.5.3",
-    "@reshuffle/fetch-runtime": "0.0.5",
-    "@reshuffle/local-proxy": "^0.2.12",
-    "@reshuffle/server-function": "0.0.6",
+    "@reshuffle/code-transform": "^0.1.0",
+    "@reshuffle/db": "^0.5.5",
+    "@reshuffle/fetch-runtime": "^0.1.0",
+    "@reshuffle/local-proxy": "^0.3.1",
+    "@reshuffle/server-function": "^0.2.2",
     "bootstrap": "^4.3.1",
     "clipboard-copy": "^3.1.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "jquery": "^3.4.1",
     "prettier": "^1.18.2",
     "react": "^16.9.0",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
-    "stylelint": "^11.1.1"
+    "react-super-responsive-table": "^5.1.1",
+    "sentiment": "^5.0.2",
+    "stylelint": "^11.1.1",
+    "typescript": "^3.7.2"
   },
   "scripts": {
     "start": "cross-env EXTEND_ESLINT=true react-scripts start",
