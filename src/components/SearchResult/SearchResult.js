@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import SearchResultItem from '../SearchResultItem/SearchResultItem';
 import SearchResultGridHeaders from '../SearchResultGridHeaders/SearchResultGridHeaders';
 import { Progress } from 'react-sweet-progress';
+import AverageCharts from '../AverageCharts/AverageCharts';
 import './SearchResult.css';
 
 export default function SearchResult({ result }) {
@@ -16,21 +17,7 @@ export default function SearchResult({ result }) {
 
   return (
     <Container>
-      <Row className='p-5'>
-        <Col className='level-text text-right pt-1'>
-          {totals && `User average toxicity level: `}
-        </Col>
-        <Col>
-          {totals && (
-            <Progress
-              type='circle'
-              strokeWidth={5}
-              percent={totals.tox}
-              width={100}
-            />
-          )}
-        </Col>
-      </Row>
+      <AverageCharts totals={totals} />
 
       {details && (
         <Row>
