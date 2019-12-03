@@ -7,7 +7,7 @@ import './SearchResultGridHeaders.css';
 
 export default function SearchResultGridHeaders() {
   return (
-    <Row className='align-items-center header-padding'>
+    <Row className='align-items-center header-padding text-center'>
       <Col className='col-1'>
         <h6 className=''>#</h6>
       </Col>

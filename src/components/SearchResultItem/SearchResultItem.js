@@ -44,7 +44,7 @@ export default function SearchResultItem({ item, index }) {
   if (postContent) {
     return (
       <ListGroup.Item action variant='light'>
-        <Row className='align-items-center'>
+        <Row className='align-items-center text-center'>
           <Col className='col-1'>
             <h6 className=''>{index + 1}</h6>
           </Col>
