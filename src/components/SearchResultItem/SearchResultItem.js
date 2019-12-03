@@ -6,6 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'react-sweet-progress/lib/style.css';
+import './SearchResultItem.css';
 
 export default function SearchResultItem({ item, index }) {
   let sentimentScore = 'N/A';
@@ -23,7 +24,7 @@ export default function SearchResultItem({ item, index }) {
       <ListGroup.Item action variant='light'>
         <Row className='align-items-center'>
           <Col className='col-1'>
-            <h6 className=''>{index}</h6>
+            <h6 className=''>{index + 1}</h6>
           </Col>
           <Col className='col-2'>
             {sentimentScore > 0 && (
