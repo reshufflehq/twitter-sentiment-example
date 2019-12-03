@@ -13,7 +13,7 @@ export default function HistoryTable({ history }) {
     let key = history[index].key;
     key = key.substring(7);
     let score = history[index].value.totals.tox;
-    let url = `./${key}`;
+    let url = `${process.env.PUBLIC_URL}/handle/${key}`;
     historyTable.push(
       <tr key={key}>
         <td>
