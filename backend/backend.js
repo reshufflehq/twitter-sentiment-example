@@ -36,7 +36,7 @@ export async function checkHandle(handle) {
   let tweetsReviewed = 0;
   let analysis = { totals: { tox: 0, sentiment: 0 }, details: [] };
 
-  for (var x = 0; x < 5; x++) {
+  for (let x = 0; x < 5; x++) {
     if (results[x]) {
       let clean = results[x].text;
       clean = clean.replace(/\B@[a-z0-9_-]+/gi, '');
