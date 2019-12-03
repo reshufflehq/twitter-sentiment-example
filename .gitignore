@@ -18,7 +18,6 @@
 .env.test.local
 .env.production.local
 API-Project-bf5cbda041c7.json
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

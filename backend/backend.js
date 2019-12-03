@@ -13,10 +13,16 @@ const perspectiveUrl = `https://commentanalyzer.googleapis.com/v1alpha1/comments
 
 const allKeysQuery = db.Q.filter(db.Q.key.startsWith('handle/'));
 
+// Imports the Google Cloud client library
+const language = require('@google-cloud/language');
+
+// Instantiates a client
+const client = new language.LanguageServiceClient();
+
 /* @expose */
 export async function getHistory() {
   const result = await db.find(allKeysQuery);
-  console.log(JSON.stringify(result));
+  //console.log(JSON.stringify(result));
   return result;
 }
 
@@ -38,15 +44,19 @@ export async function checkHandle(handle) {
 
   for (var x = 0; x < 5; x++) {
     if (results[x]) {
-      let clean = results[x].text;
+      let clean = results[x].full_text;
       clean = clean.replace(/\B@[a-z0-9_-]+/gi, '');
       let toxic = await getToxicity(clean);
+      let googleSentiment = await getGoogleSentiment(clean);
       let sentimentScore = sentiment.analyze(clean);
       let sum = toxic.attributeScores.SEVERE_TOXICITY.summaryScore.value;
       let score = Math.round(sum * 100);
       totalSentimentScore += sentimentScore;
       totalToxicScore += score;
-      analysis.details.push([[score, sentimentScore.score], [results[x].text]]);
+      analysis.details.push([
+        [score, sentimentScore.score, googleSentiment],
+        [results[x].full_text],
+      ]);
       tweetsReviewed++;
     }
   }
@@ -96,9 +106,27 @@ async function getToxicity(text) {
   return results;
 }
 
+async function getGoogleSentiment(text) {
+  let document = {
+    content: text,
+    type: 'PLAIN_TEXT',
+  };
+  // Detects the sentiment of the text
+  const [result] = await client.analyzeSentiment({ document: document });
+  let sentiment = result.documentSentiment;
+
+  //console.log(`Text: ${text}`);
+  //console.log(`Sentiment score: ${sentiment.score}`);
+  //console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+  //console.log(`Sentiment everything: ${JSON.stringify(sentiment)}`);
+  sentiment.score = sentiment.score.toPrecision(2);
+  sentiment.magnitude = sentiment.magnitude.toPrecision(2);
+  return sentiment;
+}
+
 async function getTweets(handle) {
   const results = await fetch(
-    `${url}?screen_name=${handle}&count=5&exclude_replies=true`,
+    `${url}?screen_name=${handle}&tweet_mode=extended&count=5&exclude_replies=true`,
     {
       method: 'get',
       headers: {
@@ -109,7 +137,7 @@ async function getTweets(handle) {
   )
     .then(json)
     .then(function(data) {
-      //console.log('Request succeeded with JSON response', data);
+      //console.log('Request succeeded with JSON response', JSON.stringify(data));
       return data;
     })
     .catch(function(error) {
