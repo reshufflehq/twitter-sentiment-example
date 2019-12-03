@@ -40,7 +40,11 @@ export async function checkHandle(handle) {
   let totalSentimentScore = 0;
   let totalToxicScore = 0;
   let tweetsReviewed = 0;
-  let analysis = { totals: { tox: 0, sentiment: 0 }, details: [] };
+  let GoogleSentimentCollection = [];
+  let analysis = {
+    totals: { tox: 0, sentiment: 0, google_sentiment: 0 },
+    details: [],
+  };
 
   for (var x = 0; x < 5; x++) {
     if (results[x]) {
@@ -48,6 +52,9 @@ export async function checkHandle(handle) {
       clean = clean.replace(/\B@[a-z0-9_-]+/gi, '');
       let toxic = await getToxicity(clean);
       let googleSentiment = await getGoogleSentiment(clean);
+      for (let index = 0; index < Math.ceil(googleSentiment.magnitude); index++) {
+        GoogleSentimentCollection.push(googleSentiment.score);
+      }
       let sentimentScore = sentiment.analyze(clean);
       let sum = toxic.attributeScores.SEVERE_TOXICITY.summaryScore.value;
       let score = Math.round(sum * 100);
@@ -62,6 +69,10 @@ export async function checkHandle(handle) {
   }
   analysis.totals.tox = totalToxicScore / tweetsReviewed;
   analysis.totals.sentiment = totalSentimentScore / tweetsReviewed;
+  let googleSum = GoogleSentimentCollection.reduce((a, b) => parseFloat(a) + parseFloat(b), 0);
+  let googleAvg = googleSum/GoogleSentimentCollection.length;
+  analysis.totals.google_sentiment = googleAvg;
+  //console.log(`g: ${googleAvg}`);
   if (analysis.totals.tox) cacheAnalysis(cleanHandle, analysis);
   return analysis;
 }
@@ -118,7 +129,7 @@ async function getGoogleSentiment(text) {
   //console.log(`Text: ${text}`);
   //console.log(`Sentiment score: ${sentiment.score}`);
   //console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
-  //console.log(`Sentiment everything: ${JSON.stringify(sentiment)}`);
+  console.log(`Sentiment everything: ${JSON.stringify(sentiment)}`);
   sentiment.score = sentiment.score.toPrecision(2);
   sentiment.magnitude = sentiment.magnitude.toPrecision(2);
   return sentiment;

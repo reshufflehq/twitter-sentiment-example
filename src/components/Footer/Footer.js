@@ -5,12 +5,24 @@ import './Footer.css';
 export default function Footer() {
   return (
     <div>
-      <i>
-        Toxicity according to Google{' '}
-        <a href='https://www.perspectiveapi.com/#/home'>Perspective API</a>,
-        Sentiment according to{' '}
-        <a href='https://www.npmjs.com/package/sentiment'>Sentiment</a>
-      </i>
+      <div>
+        <i>
+          Toxicity according to Google{' '}
+          <a href='https://www.perspectiveapi.com/#/home'>Perspective API</a>,
+          Sentiment according to Node{' '}
+          <a href='https://www.npmjs.com/package/sentiment'>Sentiment</a> and{' '}
+          <a href='https://cloud.google.com/natural-language/'>
+            Google Sentiment Analysis
+          </a>
+          .
+        </i>
+      </div>
+      <div>
+        <br></br>
+        Life is work in Progress - This is an open source project, you can check the source, remix it, and
+        run your own at this{' '}
+        <a href='https://reshuffle.com'>Reshuffle template</a>.
+      </div>
     </div>
   );
 }
