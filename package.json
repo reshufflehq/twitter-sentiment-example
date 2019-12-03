@@ -24,6 +24,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
     "react-super-responsive-table": "^5.1.1",
+    "react-sweet-progress": "^1.1.2",
     "sentiment": "^5.0.2"
   },
   "scripts": {
