@@ -37,7 +37,7 @@ export default function SearchResult({ result }) {
           <ListGroup variant='flush' className='w-100'>
             <SearchResultGridHeaders />
             {details.map((element, index) => (
-              <SearchResultItem item={element} key={index} />
+              <SearchResultItem item={element} index={index} />
             ))}
           </ListGroup>
         </Row>
