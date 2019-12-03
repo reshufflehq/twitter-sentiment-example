@@ -12,7 +12,13 @@ export default function SearchResultGridHeaders() {
         <h6 className=''>#</h6>
       </Col>
       <Col className='col-2'>
-        <h6 className=''>Sentiment Score</h6>
+        <h6 className=''>Google Sentiment Score</h6>
+      </Col>
+      <Col className='col-2'>
+        <h6 className=''>Node Sentiment Score</h6>
+      </Col>
+      <Col className='col-2'>
+        <h6 className=''>magnitude</h6>
       </Col>
       <Col className='col-2'>
         <h6 className=''>Likely to be rude %</h6>

@@ -9,8 +9,10 @@ import 'react-sweet-progress/lib/style.css';
 import './SearchResultItem.css';
 
 export default function SearchResultItem({ item, index }) {
-  let sentimentScore = 'N/A';
+  let googleSentimentScore = 'N/A';
+  let nodeSentimentScore = 'N/A';
   let rudeScore = 'N/A';
+  let magnitude = 'N/A';
   let postContent;
 
   if (Array.isArray(item)) {
@@ -29,11 +31,31 @@ export default function SearchResultItem({ item, index }) {
             <h6 className=''>{index + 1}</h6>
           </Col>
           <Col className='col-2'>
-            {sentimentScore > 0 && (
+            {googleSentimentScore > 0 && (
               <Progress
                 type='circle'
                 strokeWidth={3}
-                percent={(sentimentScore / 5) * 100}
+                percent={googleSentimentScore}
+                width={50}
+              />
+            )}
+          </Col>
+          <Col className='col-2'>
+            {nodeSentimentScore > 0 && (
+              <Progress
+                type='circle'
+                strokeWidth={3}
+                percent={nodeSentimentScore}
+                width={50}
+              />
+            )}
+          </Col>
+          <Col className='col-2'>
+            {magnitude && (
+              <Progress
+                type='circle'
+                strokeWidth={3}
+                percent={magnitude}
                 width={50}
               />
             )}
