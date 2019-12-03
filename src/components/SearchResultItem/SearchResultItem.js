@@ -14,7 +14,9 @@ export default function SearchResultItem({ item, index }) {
   let postContent;
 
   if (Array.isArray(item)) {
-    sentimentScore = item[0][1];
+    googleSentimentScore = item[0][2].score;
+    nodeSentimentScore = item[0][1];
+    magnitude = item[0][2].magnitude;
     rudeScore = item[0][0];
     postContent = item[1];
   }
