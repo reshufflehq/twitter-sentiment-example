@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import 'react-sweet-progress/lib/style.css';
 import './SearchResultItem.css';
 
-export default function SearchResultItem({ item, index }) {
+export default function SearchResultItem({ item, key }) {
   let sentimentScore = 'N/A';
   let rudeScore = 'N/A';
   let postContent;
@@ -24,7 +24,7 @@ export default function SearchResultItem({ item, index }) {
       <ListGroup.Item action variant='light'>
         <Row className='align-items-center'>
           <Col className='col-1'>
-            <h6 className=''>{index + 1}</h6>
+            <h6 className=''>{key + 1}</h6>
           </Col>
           <Col className='col-2'>
             {sentimentScore > 0 && (
@@ -51,31 +51,8 @@ export default function SearchResultItem({ item, index }) {
           </Col>
         </Row>
       </ListGroup.Item>
-      // <li key={index}>
-      //   Sentiment score
-      //   {
-      //     <Progress
-      //       type='circle'
-      //       strokeWidth={3}
-      //       percent={(sentimentScore / 5) * 100}
-      //       width={50}
-      //     />
-      //   }
-      //   <br />
-      //   likely to be rude score:{'  '}
-      //   {
-      //     <Progress
-      //       type='circle'
-      //       strokeWidth={3}
-      //       percent={rudeScore}
-      //       width={50}
-      //     />
-      //   }
-      //   <br />
-      //   {postContent}
-      // </li>
     );
   } else {
-    return <li key={index}> {item} </li>;
+    return <li key={key}> {item} </li>;
   }
 }

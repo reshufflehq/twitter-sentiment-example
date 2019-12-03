@@ -4,7 +4,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SearchResult from '../SearchResult/SearchResult';
-import HistoryTable from '../HistoryTable';
+import HistoryTable from '../HistoryTable/HistoryTable';
 import Footer from '../Footer/Footer';
 import './SearchResultContainer.css';
 

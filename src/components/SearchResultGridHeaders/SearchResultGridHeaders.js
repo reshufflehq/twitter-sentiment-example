@@ -3,11 +3,11 @@ import React from 'react';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './SearchResultGridHeaders';
+import './SearchResultGridHeaders.css';
 
 export default function SearchResultGridHeaders() {
   return (
-    <Row className='align-items-center'>
+    <Row className='align-items-center header-padding'>
       <Col className='col-1'>
         <h6 className=''>#</h6>
       </Col>
