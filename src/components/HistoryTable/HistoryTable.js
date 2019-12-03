@@ -14,7 +14,7 @@ export default function HistoryTable({ history }) {
     key = key.substring(7);
     let tox_score = history[index].value.totals.tox;
     let sentiment_score = history[index].value.totals.sentiment;
-    console.log(`got:`+JSON.stringify(history[index].value.totals));
+    // console.log(`got:` + JSON.stringify(history[index].value.totals));
     let google_score = history[index].value.totals.google_sentiment;
     let url = `${process.env.PUBLIC_URL}/handle/${key}`;
     historyTable.push(

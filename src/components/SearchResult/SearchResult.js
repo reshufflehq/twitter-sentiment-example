@@ -5,10 +5,8 @@ import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import SearchResultItem from '../SearchResultItem/SearchResultItem';
 import SearchResultGridHeaders from '../SearchResultGridHeaders/SearchResultGridHeaders';
-import { Progress } from 'react-sweet-progress';
 import AverageCharts from '../AverageCharts/AverageCharts';
 import './SearchResult.css';
 
@@ -24,7 +22,7 @@ export default function SearchResult({ result }) {
           <ListGroup variant='flush' className='w-100'>
             <SearchResultGridHeaders />
             {details.map((element, index) => (
-              <SearchResultItem item={element} index={index} />
+              <SearchResultItem key={index} item={element} index={index} />
             ))}
           </ListGroup>
         </Row>

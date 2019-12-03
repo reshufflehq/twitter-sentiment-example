@@ -15,29 +15,28 @@ export default function Admin() {
   const [history, setHistory] = useState(['']);
 
   useEffect(() => {
-    handleAddLink();
-  }, []);
+    const handleAddLink = async () => {
+      try {
+        const text = inputValue;
+        let lastHistory = null;
+        // prevent empty string to add in list
+        if (!text || text === '') {
+          lastHistory = await getHistory();
+          setHistory(lastHistory);
+          return;
+        }
 
-  const handleAddLink = async () => {
-    try {
-      const text = inputValue;
-      let lastHistory = null;
-      // prevent empty string to add in list
-      if (!text || text == ''){
-         lastHistory = await getHistory();
+        const result = await checkHandle(text);
+        setDisplay(result);
+
+        lastHistory = await getHistory();
         setHistory(lastHistory);
-        return;
-      };
-
-      const result = await checkHandle(text);
-      setDisplay(result);
-
-      lastHistory = await getHistory();
-      setHistory(lastHistory);
-    } catch (error) {
-      console.error('Error on adding link to db');
-    }
-  };
+      } catch (error) {
+        console.error('Error on adding link to db');
+      }
+    };
+    handleAddLink();
+  }, [inputValue]);
 
   return (
     <Container className='mt-4 mb-5'>
