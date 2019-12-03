@@ -10,7 +10,7 @@ export default function SearchContainer() {
     <Row className='bg-search'>
       <div>
         <h2 className='pt-4 pb-4 search-title'>
-          How rude are the following person`s Tweets?
+          How rude are the following person's Tweets?
         </h2>
         <SearchBar />
       </div>
