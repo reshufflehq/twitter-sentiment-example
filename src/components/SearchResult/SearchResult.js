@@ -10,23 +10,11 @@ import SearchResultGridHeaders from '../SearchResultGridHeaders/SearchResultGrid
 
 export default function SearchResult({ result }) {
   const { details, totals } = result;
-  const items = [];
-  const toxicityLevel = totals && `User average toxicity level ${totals.tox}%`;
-
-  // if (details && details.length && details.length > 0) {
-  //   items.push(<SearchResultGridHeaders />);
-  //   for (let index = 0; index < details.length; index++) {
-  //     const element = details[index];
-  //     items.push(<SearchResultItem item={element} index={index} />);
-  //   }
-  // }
 
   return (
     <Container>
-      <b>{toxicityLevel}</b>
-      {/* <br />
-      <br />
-      {items} */}
+      <b>{totals && `User average toxicity level ${totals.tox}%`}</b>
+
       {details && (
         <Row>
           <ListGroup variant='flush' className='w-100'>
