@@ -12,14 +12,19 @@ export default function HistoryTable({ history }) {
   for (let index = 0; index < history.length; index++) {
     let key = history[index].key;
     key = key.substring(7);
-    let score = history[index].value.totals.tox;
+    let tox_score = history[index].value.totals.tox;
+    let sentiment_score = history[index].value.totals.sentiment;
+    console.log(`got:`+JSON.stringify(history[index].value.totals));
+    let google_score = history[index].value.totals.google_sentiment;
     let url = `${process.env.PUBLIC_URL}/handle/${key}`;
     historyTable.push(
       <tr key={key}>
         <td>
           <a href={url}>{key}</a>
         </td>
-        <td>{score}</td>
+        <td>{tox_score}</td>
+        <td>{sentiment_score}</td>
+        <td>{google_score}</td>
       </tr>,
     );
   }
@@ -31,7 +36,9 @@ export default function HistoryTable({ history }) {
         <thead>
           <tr>
             <th>User</th>
-            <th>Score</th>
+            <th>toxicity</th>
+            <th>Node Sentiment</th>
+            <th>Google Sentiment</th>
           </tr>
         </thead>
         <tbody>{historyTable}</tbody>

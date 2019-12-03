@@ -58,7 +58,7 @@ export async function checkHandle(handle) {
       let sentimentScore = sentiment.analyze(clean);
       let sum = toxic.attributeScores.SEVERE_TOXICITY.summaryScore.value;
       let score = Math.round(sum * 100);
-      totalSentimentScore += sentimentScore;
+      totalSentimentScore += parseFloat(sentimentScore.score);
       totalToxicScore += score;
       analysis.details.push([
         [score, sentimentScore.score, googleSentiment],
@@ -67,12 +67,11 @@ export async function checkHandle(handle) {
       tweetsReviewed++;
     }
   }
-  analysis.totals.tox = totalToxicScore / tweetsReviewed;
-  analysis.totals.sentiment = totalSentimentScore / tweetsReviewed;
+  analysis.totals.tox = (totalToxicScore / tweetsReviewed).toPrecision(2);
+  analysis.totals.sentiment = (totalSentimentScore / tweetsReviewed).toPrecision(2);
   let googleSum = GoogleSentimentCollection.reduce((a, b) => parseFloat(a) + parseFloat(b), 0);
   let googleAvg = googleSum/GoogleSentimentCollection.length;
-  analysis.totals.google_sentiment = googleAvg;
-  //console.log(`g: ${googleAvg}`);
+  analysis.totals.google_sentiment = googleAvg.toPrecision(2);
   if (analysis.totals.tox) cacheAnalysis(cleanHandle, analysis);
   return analysis;
 }

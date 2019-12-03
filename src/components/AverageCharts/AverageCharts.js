@@ -16,7 +16,7 @@ export default function AverageCharts({ totals }) {
       <Row className='p-5'>
         <>
           <Col className='level-text text-right pt-1'>
-            {totals && `User average toxicity level: `}
+            {totals && `Average toxicity level: `}
           </Col>
           <Col className='col-2'>
             {totals && (
@@ -31,18 +31,18 @@ export default function AverageCharts({ totals }) {
         </>
         <>
           <Col className='level-text text-right pt-1'>
-            {totals && `User average toxicity level: `}
+            {totals && `Average node sentiment analysis: `}
           </Col>
           <Col className='col-2'>
-            {totals && <GuageChartRange score={0.5} index={2} id={'avg1'} />}
+            {totals && <GuageChartRange score={totals.sentiment} index={2} id={'avg1'} />}
           </Col>
         </>
         <>
           <Col className='level-text text-right pt-1'>
-            {totals && `User average:`}
+            {totals && `Average Google sentiment analysis:`}
           </Col>
           <Col className='col-2'>
-            {totals && <GuageChartRange score={0.5} index={3} id={'avg2'} />}
+            {totals && <GuageChartRange score={totals.google_sentiment} index={3} id={'avg2'} />}
           </Col>
         </>
       </Row>
