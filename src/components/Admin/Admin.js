@@ -56,7 +56,7 @@ export default function Admin() {
       <Row>
         <Col className='col-md-7 col-sm-10'>
           <h2 className='pt-4 pb-4'>
-            How rude are the following person`s Tweets?
+            How rude are the following person&quot;s Tweets?
           </h2>
           <Row className='mr-0 ml-0 pb-4'>
             <Col className='pl-0 pr-0'>
