@@ -84,7 +84,8 @@ export async function checkHandle(handle) {
     googleSum = googleSum + parseFloat(GoogleSentimentCollection[i]);
     googleSum = Math.round(googleSum * 1000) / 1000;
   }
-  let googleAvg = googleSum / GoogleSentimentCollection.length;
+  const googLen = GoogleSentimentCollection.length;
+  let googleAvg = googLen ? googleSum / GoogleSentimentCollection.length : 0;
   analysis.totals.google_sentiment = parseFloat(googleAvg.toPrecision(2));
   if (analysis.totals.tox) cacheAnalysis(cleanHandle, analysis);
   return analysis;
