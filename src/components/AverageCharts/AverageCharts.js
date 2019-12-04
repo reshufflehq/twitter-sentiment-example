@@ -18,41 +18,35 @@ export default function AverageCharts({ totals }) {
   return (
     <Container>
       <Row className='p-5'>
-      <>
-          <Col className='level-text text-right pt-1'>
-            {totals && `Average Google sentiment:`}
-          </Col>
-          <Col className='col-2'>
-            {totals && (
-              <GuageChartRangeGoogle score={googleSentimentScore} index={10} />
-            )}
-          </Col>
-        </>
-        <>
-          <Col className='level-text text-right pt-1'>
-            {totals && `Average node sentiment: `}
-          </Col>
-          <Col className='col-2'>
-            {totals && (
-              <GuageChartRangeNode score={nodeSentimentScore} index={20} />
-            )}
-          </Col>
-        </>
-        <>
-          <Col className='level-text text-right pt-1'>
-            {totals && `Average toxicity level: `}
-          </Col>
-          <Col className='col-2'>
-            {totals && (
-              <Progress
-                type='circle'
-                strokeWidth={5}
-                percent={totals.tox}
-                width={100}
-              />
-            )}
-          </Col>
-        </>
+        <Col className='level-text text-right pt-1'>
+          {totals && `Average Google sentiment:`}
+        </Col>
+        <Col className='col-2'>
+          {totals && (
+            <GuageChartRangeGoogle score={googleSentimentScore} index={10} />
+          )}
+        </Col>
+        <Col className='level-text text-right pt-1'>
+          {totals && `Average node sentiment: `}
+        </Col>
+        <Col className='col-2'>
+          {totals && (
+            <GuageChartRangeNode score={nodeSentimentScore} index={20} />
+          )}
+        </Col>
+        <Col className='level-text text-right pt-1'>
+          {totals && `Average toxicity level: `}
+        </Col>
+        <Col className='col-2'>
+          {totals && (
+            <Progress
+              type='circle'
+              strokeWidth={5}
+              percent={totals.tox}
+              width={100}
+            />
+          )}
+        </Col>
       </Row>
     </Container>
   );
