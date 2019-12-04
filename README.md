@@ -6,7 +6,7 @@ This is an example of running sentiment analysis on Tweets. This example uses th
 
 ## Screenshots
 
-<img src="./app-screen.png" width='50%' >
+<img src="./thumbnail.png" width='50%' >
 
 ## Configuring a Google API Key and Twitter API key
 
