@@ -4,7 +4,7 @@
     rgba(0, 0, 0, 0.5)
   ), url('../../assets/bg.jpg');
   background-repeat: no-repeat;
-  height: 300px;
+  height: 50vh;
   background-position: center;
   background-color: #cccccc;
   background-size: cover;
@@ -20,4 +20,11 @@
   font-weight: bold;
   font-family: -apple-system, BlinkMacSystemFont, San Francisco, Helvetica Neue,
     Helvetica, Ubuntu, Roboto, Noto, Segoe UI, Arial, sans-serif;
+  font-size: calc(16px + 6 * ((100vw - 320px) / 680));
 }
+@media screen and (min-width: 1200px) {
+  .search-title {
+   font-size: 2rem;
+  }
+}
+
