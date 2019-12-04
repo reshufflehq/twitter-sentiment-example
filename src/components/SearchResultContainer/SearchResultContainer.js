@@ -13,7 +13,7 @@ export default function SearchResultContainer({ result, history }) {
     <React.Fragment>
       <Row>
         <Col>
-          <SearchResult result={result}></SearchResult>
+          {result.details && <SearchResult result={result}></SearchResult>}
           <HistoryTable history={history}></HistoryTable>
         </Col>
       </Row>
