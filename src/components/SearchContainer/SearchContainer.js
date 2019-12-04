@@ -10,7 +10,7 @@ import { hasCredentials } from '../../../backend/backend';
 
 // In order to run this template you will need to provide API credentials
 export default function SearchContainer() {
-  const [hasCreds, setHasCreds] = useState(false);
+  const [hasCreds, setHasCreds] = useState(true);
   useEffect(() => {
     const checkCredentials = async () => {
       const maybeCreds = await hasCredentials();
