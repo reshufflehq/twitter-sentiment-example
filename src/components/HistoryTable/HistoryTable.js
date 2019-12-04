@@ -63,8 +63,8 @@ export default function HistoryTable({ history }) {
       <Table responsive className='w-50'>
         <thead>
           <tr>
-            <th>User</th>
-            <th>toxicity</th>
+            <th>Handle</th>
+            <th>Toxicity</th>
             <th>Google Sentiment</th>
             <th>Node Sentiment</th>
           </tr>
