@@ -4,8 +4,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import './HistoryTable.css';
-import GuageChartRangeGoogle from '../GuageChartRange/GuageChartRangeGoogle';
-import GuageChartRangeNode from '../GuageChartRange/GuageChartRangeNode';
+import GaugeChartRangeGoogle from '../GaugeChartRange/GaugeChartRangeGoogle';
+import GaugeChartRangeNode from '../GaugeChartRange/GaugeChartRangeNode';
 import { Progress } from 'react-sweet-progress';
 
 export default function HistoryTable({ history }) {
@@ -38,7 +38,7 @@ export default function HistoryTable({ history }) {
         </td>
         <td>
           {
-            <GuageChartRangeGoogle
+            <GaugeChartRangeGoogle
               width={'50%'}
               score={google_score}
               index={key}
@@ -47,7 +47,7 @@ export default function HistoryTable({ history }) {
         </td>
         <td>
           {
-            <GuageChartRangeNode
+            <GaugeChartRangeNode
               width={'50%'}
               score={sentiment_score}
               index={key}

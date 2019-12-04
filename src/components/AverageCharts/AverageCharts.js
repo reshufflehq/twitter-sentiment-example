@@ -5,9 +5,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import GuageChartRangeNode from '../GuageChartRange/GuageChartRangeNode';
-import GuageChartRangeGoogle from '../GuageChartRange/GuageChartRangeGoogle';
-
+import GaugeChartRangeNode from '../GaugeChartRange/GaugeChartRangeNode';
+import GaugeChartRangeGoogle from '../GaugeChartRange/GaugeChartRangeGoogle';
 import { Progress } from 'react-sweet-progress';
 import './AverageCharts.css';
 
@@ -16,24 +15,24 @@ export default function AverageCharts({ totals }) {
   const googleSentimentScore = totals && totals.google_sentiment;
   if (!totals) return;
   return (
-    <Container>
-      <Row className='p-5'>
-        <Col className='level-text text-right pt-1'>
-          Average Google sentiment:
+    <Container className='justify-content-md-center pt-5'>
+      <Row>
+        <Col xs={6} md={2} className='level-text text-right pt-1'>
+          Average Google Sentiment:
+          </Col>
+        <Col xs={6} md={2} >
+          <GaugeChartRangeGoogle score={googleSentimentScore} index={34} />
         </Col>
-        <Col className='col-2'>
-          <GuageChartRangeGoogle score={googleSentimentScore} index={10} />
+        <Col xs={6} md={2} className='level-text text-right pt-1'>
+          Average Node Sentiment:
+          </Col>
+        <Col xs={6} md={2}>
+          <GaugeChartRangeNode score={nodeSentimentScore} index={43} />
         </Col>
-        <Col className='level-text text-right pt-1'>
-          Average node sentiment:
-        </Col>
-        <Col className='col-2'>
-          <GuageChartRangeNode score={nodeSentimentScore} index={20} />
-        </Col>
-        <Col className='level-text text-right pt-1'>
-          Average toxicity level:
-        </Col>
-        <Col className='col-2'>
+        <Col xs={6} md={2} className='level-text text-right pt-1'>
+          Average Toxicity Level
+          </Col>
+        <Col xs={6} md={2} className='justify-content-center'>
           <Progress
             type='circle'
             strokeWidth={5}

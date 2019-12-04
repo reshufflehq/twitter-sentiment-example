@@ -5,8 +5,8 @@ import { Progress } from 'react-sweet-progress';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import GuageChartRangeGoogle from '../GuageChartRange/GuageChartRangeGoogle';
-import GuageChartRangeNode from '../GuageChartRange/GuageChartRangeNode';
+import GaugeChartRangeGoogle from '../GaugeChartRange/GaugeChartRangeGoogle';
+import GaugeChartRangeNode from '../GaugeChartRange/GaugeChartRangeNode';
 import 'react-sweet-progress/lib/style.css';
 import './SearchResultItem.css';
 
@@ -54,7 +54,7 @@ export default function SearchResultItem({ item, index }) {
           </Col>
           <Col className='col-2'>
             {
-              <GuageChartRangeGoogle
+              <GaugeChartRangeGoogle
                 score={googleSentimentScore}
                 index={index + 1}
               />
@@ -62,7 +62,7 @@ export default function SearchResultItem({ item, index }) {
           </Col>
           <Col className='col-2'>
             {
-              <GuageChartRangeNode
+              <GaugeChartRangeNode
                 score={nodeSentimentScore}
                 index={index + 1}
               />
