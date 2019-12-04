@@ -16,7 +16,7 @@ This template need to have 2 API keys: a Google API key and Twitter API key and 
 
 . Without a keys and the Google Application Credentials file, the search won't show results.
 
-To get and include your own Google API key:
+How to obtain and use your own Google API key:
 
 1. Obtain a key following [these instructions](https://github.com/conversationai/perspectiveapi/tree/master/1-get-started) (Skip this step if you already have a key)
 2. Create a .env file in the root directory of the template
