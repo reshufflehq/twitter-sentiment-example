@@ -4,7 +4,7 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <div>
+    <footer>
       <div>
         <i>
           Toxicity according to Google{' '}
@@ -23,6 +23,6 @@ export default function Footer() {
         run your own at this{' '}
         <a href='https://reshuffle.com'>Reshuffle template</a>.
       </div>
-    </div>
+    </footer>
   );
 }
