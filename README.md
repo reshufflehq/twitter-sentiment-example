@@ -10,13 +10,13 @@ This is an example of running sentiment analysis on Tweets. This example uses th
 
 <img src="./app-screen.png" width='50%' >
 
-## Configuring a Google API Key and Tweeter API key
+## Configuring a Google API Key and Twitter API key
 
-This template need to have 2 API keys: a Google API key and Tweeter API key and Google Application Credentials file, this keys and file are not included in this project.
+This template need to have 2 API keys: a Google API key and Twitter API key and Google Application Credentials file, these keys and file are not included in this project.
 
-. Without a keys and the Google Application Credentials file, the search won't show results.
+Without the keys and Google Application Credentials file, the search won't show results.
 
-To get and include your own Google API key:
+#### How to obtain and use your own Google API key:
 
 1. Obtain a key following [these instructions](https://github.com/conversationai/perspectiveapi/tree/master/1-get-started) (Skip this step if you already have a key)
 2. Create a .env file in the root directory of the template
@@ -26,7 +26,7 @@ To get and include your own Google API key:
 GOOGLE_DEV_KEY=<YOUR API KEY>
 ```
 
-To get and include your own Tweeter API key:
+#### How to obtain and use your own Twitter API key:
 
 1. Obtain a key following [these instructions](https://developer.twitter.com/en/docs/basics/authentication/guides/bearer-tokens) (Skip this step if you already have a key)
 2. Insert the following line inside the .env file, replacing `<Your API KEY>` with your API key:
@@ -35,7 +35,7 @@ To get and include your own Tweeter API key:
 TWITTER_DEV_KEY=<YOUR API KEY>
 ```
 
-To get and include your own Google Application Credentials file:
+#### How to obtain and use your own Google Application Credentials file:
 
 1. Obtain a key following [these instructions](https://cloud.google.com/natural-language/docs/quickstart-client-libraries#client-libraries-install-nodejs) (Skip this step if you already have a key)
 2. Add your Google Application Credentials file to the folder backend.
