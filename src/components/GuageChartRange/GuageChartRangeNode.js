@@ -19,7 +19,6 @@ export default function GuageChartRangeGoogle({ score, index, width }) {
   };
 
   const fixedNodeScoreToFitChart = score => {
-    console.log(`fixedNode got score: ${score} and ${score == 0}`);
     if (score == 0) {
       nodeSentimentScoreStatus = 'Neutral';
       return 0.5;
