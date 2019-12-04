@@ -15,14 +15,12 @@ export default function SearchContainer() {
     const checkCredentials = async () => {
       const maybeCreds = await hasCredentials();
       setHasCreds(maybeCreds);
-    }
+    };
     checkCredentials();
   }, []);
   return (
     <>
-      {
-        !hasCreds && <ApiKeyNav />
-      }
+      {!hasCreds && <ApiKeyNav />}
       <Row className='bg-search'>
         <div className='search-container'>
           <div className='search-title'>

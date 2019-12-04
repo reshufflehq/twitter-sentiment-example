@@ -2,7 +2,6 @@
 /* eslint-disable react/prop-types */
 import '@reshuffle/code-transform/macro';
 import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

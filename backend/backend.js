@@ -9,7 +9,7 @@ const url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 
 const token = process.env.TWITTER_DEV_KEY;
 const Gtoken = process.env.GOOGLE_DEV_KEY;
-const creds = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+const googleAppCredentials = process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
 const perspectiveUrl = `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${Gtoken}`;
 
@@ -54,7 +54,11 @@ export async function checkHandle(handle) {
       clean = clean.replace(/\B@[a-z0-9_-]+/gi, '');
       let toxic = await getToxicity(clean);
       let googleSentiment = await getGoogleSentiment(clean);
-      for (let index = 0; index < Math.ceil(googleSentiment.magnitude); index++) {
+      for (
+        let index = 0;
+        index < Math.ceil(googleSentiment.magnitude);
+        index++
+      ) {
         GoogleSentimentCollection.push(googleSentiment.score);
       }
       let sentimentScore = sentiment.analyze(clean);
@@ -70,13 +74,15 @@ export async function checkHandle(handle) {
     }
   }
   analysis.totals.tox = (totalToxicScore / tweetsReviewed).toPrecision(2);
-  analysis.totals.sentiment = (totalSentimentScore / tweetsReviewed).toPrecision(2);
+  analysis.totals.sentiment = (
+    totalSentimentScore / tweetsReviewed
+  ).toPrecision(2);
   var googleSum = 0;
   for (var i = 0; i < GoogleSentimentCollection.length; i++) {
-    googleSum = googleSum + parseFloat( GoogleSentimentCollection[i]);
-    googleSum = Math.round(googleSum * 1000)/1000;
+    googleSum = googleSum + parseFloat(GoogleSentimentCollection[i]);
+    googleSum = Math.round(googleSum * 1000) / 1000;
   }
-  let googleAvg = googleSum/GoogleSentimentCollection.length;
+  let googleAvg = googleSum / GoogleSentimentCollection.length;
   analysis.totals.google_sentiment = parseFloat(googleAvg.toPrecision(2));
   if (analysis.totals.tox) cacheAnalysis(cleanHandle, analysis);
   return analysis;
@@ -134,7 +140,7 @@ async function getGoogleSentiment(text) {
   //console.log(`Text: ${text}`);
   //console.log(`Sentiment score: ${sentiment.score}`);
   //console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
-  console.log(`Sentiment everything: ${JSON.stringify(sentiment)}`);
+  // console.log(`Sentiment everything: ${JSON.stringify(sentiment)}`);
   sentiment.score = sentiment.score.toPrecision(2);
   sentiment.magnitude = sentiment.magnitude.toPrecision(2);
   return sentiment;
@@ -188,5 +194,5 @@ export async function getLinks() {
 
 /* @expose */
 export async function hasCredentials() {
-  return token && Gtoken && creds;
+  return token && Gtoken && googleAppCredentials;
 }
