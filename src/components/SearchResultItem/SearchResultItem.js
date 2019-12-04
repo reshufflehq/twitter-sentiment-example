@@ -5,7 +5,8 @@ import { Progress } from 'react-sweet-progress';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import GuageChartRange from '../GuageChartRange/GuageChartRange';
+import GuageChartRangeGoogle from '../GuageChartRange/GuageChartRangeGoogle';
+import GuageChartRangeNode from '../GuageChartRange/GuageChartRangeNode';
 import 'react-sweet-progress/lib/style.css';
 import './SearchResultItem.css';
 
@@ -15,38 +16,30 @@ export default function SearchResultItem({ item, index }) {
   let rudeScore = 'N/A';
   let magnitude = 'N/A';
   let nodeSentimentScoreStatus = 'Negative';
-  const googleSentimentScoreChartRange = [0.375, 0.25, 0.375];
   let postContent;
 
-  const fixedNodeScoreToFitChart = score => {
-    if (score === 0 || !score) {
-      nodeSentimentScoreStatus = 'Neutral';
-      return 0.5;
-    }
-    if (score > 0) {
-      nodeSentimentScoreStatus = 'Positive';
-      return 0.2;
-    } else return 0.8;
-  };
+  // const fixedNodeScoreToFitChart = score => {
+  //   if (score === 0 || !score) {
+  //     nodeSentimentScoreStatus = 'Neutral';
+  //     return 0.5;
+  //   }
+  //   if (score > 0) {
+  //     nodeSentimentScoreStatus = 'Positive';
+  //     return 0.2;
+  //   } else return 0.8;
+  // };
 
-  //score range is between -1 t0 1 converted to percents is 0-0.375 (red), 0.375-0.625 (yellow), 0.625-1(green)
-  const fixedGoogleScoreToFitChart = score => {
-    if (score === 0 || !score) {
-      return 0;
-    }
-    return (parseFloat(score) + 1) / 2;
-  };
+  // //score range is between -1 t0 1 converted to percents is 0-0.375 (red), 0.375-0.625 (yellow), 0.625-1(green)
+  // const fixedGoogleScoreToFitChart = score => {
+  //   if (score === 0 || !score) {
+  //     return 0;
+  //   }
+  //   return (parseFloat(score) + 1) / 2;
+  // };
 
   if (Array.isArray(item)) {
-    googleSentimentScore = {
-      fixed: fixedGoogleScoreToFitChart(item[0][2].score),
-      origin: item[0][2].score,
-    };
-    nodeSentimentScore = {
-      fixed: fixedNodeScoreToFitChart(item[0][1]),
-      origin: item[0][1] >= 0 || item[0][1] <= 0 ? item[0][1] : 0,
-    };
-
+    googleSentimentScore = item[0][2].score;
+    nodeSentimentScore = item[0][1];
     magnitude = item[0][2].magnitude;
     rudeScore = item[0][0];
     postContent = item[1];
@@ -61,12 +54,9 @@ export default function SearchResultItem({ item, index }) {
           </Col>
           <Col className='col-2'>
             {
-              <GuageChartRange
+              <GuageChartRangeGoogle
                 score={googleSentimentScore}
                 index={index + 1}
-                range={googleSentimentScoreChartRange}
-                id={'google'}
-                status={''}
               />
             }
           </Col>
@@ -75,12 +65,9 @@ export default function SearchResultItem({ item, index }) {
           </Col>
           <Col className='col-2'>
             {
-              <GuageChartRange
+              <GuageChartRangeNode
                 score={nodeSentimentScore}
                 index={index + 1}
-                id={'node'}
-                status={nodeSentimentScoreStatus}
-                colors={['#ccffd6', '#feffb3', '#ffb3b3']}
               />
             }
           </Col>

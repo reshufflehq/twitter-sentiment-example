@@ -4,6 +4,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import './HistoryTable.css';
+import GuageChartRangeGoogle from '../GuageChartRange/GuageChartRangeGoogle';
+import GuageChartRangeNode from '../GuageChartRange/GuageChartRangeNode';
 
 export default function HistoryTable({ history }) {
   if (!history || history == '') return null;
@@ -23,8 +25,8 @@ export default function HistoryTable({ history }) {
           <a href={url}>{key}</a>
         </td>
         <td>{tox_score}</td>
-        <td>{sentiment_score}</td>
-        <td>{google_score}</td>
+        <td>{<GuageChartRangeGoogle score={google_score} index={key} />}</td>
+        <td>{<GuageChartRangeNode score={sentiment_score} index={key} />}</td>
       </tr>,
     );
   }
@@ -37,8 +39,8 @@ export default function HistoryTable({ history }) {
           <tr>
             <th>User</th>
             <th>toxicity</th>
-            <th>Node Sentiment</th>
             <th>Google Sentiment</th>
+            <th>Node Sentiment</th>
           </tr>
         </thead>
         <tbody>{historyTable}</tbody>

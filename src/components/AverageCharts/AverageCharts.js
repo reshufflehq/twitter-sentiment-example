@@ -5,12 +5,16 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import GuageChartRange from '../GuageChartRange/GuageChartRange';
+import GuageChartRangeNode from '../GuageChartRange/GuageChartRangeNode';
+import GuageChartRangeGoogle from '../GuageChartRange/GuageChartRangeGoogle';
 
 import { Progress } from 'react-sweet-progress';
 import './AverageCharts.css';
 
 export default function AverageCharts({ totals }) {
+  const nodeSentimentScore = totals && totals.sentiment;
+  const googleSentimentScore = totals && totals.google_sentiment;
+
   return (
     <Container>
       <Row className='p-5'>
@@ -31,18 +35,22 @@ export default function AverageCharts({ totals }) {
         </>
         <>
           <Col className='level-text text-right pt-1'>
-            {totals && `Average node sentiment analysis: `}
+            {totals && `Average Google sentiment analysis:`}
           </Col>
           <Col className='col-2'>
-            {totals && <GuageChartRange score={totals.sentiment} index={2} id={'avg1'} />}
+            {totals && (
+              <GuageChartRangeGoogle score={googleSentimentScore} index={10} />
+            )}
           </Col>
         </>
         <>
           <Col className='level-text text-right pt-1'>
-            {totals && `Average Google sentiment analysis:`}
+            {totals && `Average node sentiment analysis: `}
           </Col>
           <Col className='col-2'>
-            {totals && <GuageChartRange score={totals.google_sentiment} index={3} id={'avg2'} />}
+            {totals && (
+              <GuageChartRangeNode score={nodeSentimentScore} index={20} />
+            )}
           </Col>
         </>
       </Row>
