@@ -22,9 +22,12 @@ export default function GuageChartRangeGoogle({ score, index, width }) {
   };
 
   const scoreToPrecision = () => {
-    if (score === 0) return 0;
-    else {
-      return Number(score).toPrecision(1);
+    if(score > 0.25) {
+      return `Positive (${Number(score).toPrecision(1)}) `;
+    } else if (score > -0.25) {
+      return `Neutral (${Number(score).toPrecision(1)}) `;
+    } else {
+      return `Negative (${Number(score).toPrecision(1)}) `;
     }
   };
   return (
