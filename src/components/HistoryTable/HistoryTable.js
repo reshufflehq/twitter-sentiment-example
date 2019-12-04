@@ -60,7 +60,7 @@ export default function HistoryTable({ history }) {
 
   return (
     <Container className='pt-5 pb-5'>
-      <h3 className='history-title'>Recent history of users checked</h3>
+      <h3 className='history-title'>Recently Analyzed Handles</h3>
       <Table responsive className='w-50'>
         <thead>
           <tr>
