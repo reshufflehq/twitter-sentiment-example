@@ -10,7 +10,7 @@ const DEFAULT_GOOGLE_COLORS = ['#ffb3b3', '#feffb3', '#ccffd6'];
 
 export default function GuageChartRangeGoogle({ score, index, width }) {
   const chartStyle = {
-    width: `${width ? width : '90%'}`,
+    width: `${width ? width : '100%'}`,
     color: 'red',
     fontSize: '20px',
     justifyContent: 'center',
@@ -29,7 +29,7 @@ export default function GuageChartRangeGoogle({ score, index, width }) {
   };
   return (
     <>
-      <Row>
+      <Row className='d-flex mr-0 ml-0 justify-content-center'>
         <GaugeChart
           id={`gauge-chart-${ID}-${index + 1}`}
           arcsLength={DEFAULT_GOOGLE_RANGE}
