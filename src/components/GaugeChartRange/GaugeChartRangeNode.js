@@ -19,11 +19,12 @@ export default function GaugeChartRangeGoogle({ score, index, width }) {
   };
 
   const fixedNodeScoreToFitChart = score => {
-    if (score === 0) {
+    const scoreToNumber = Number(score);
+    if (scoreToNumber === 0) {
       nodeSentimentScoreStatus = 'Neutral';
       return 0.5;
     }
-    if (score > 0) {
+    if (scoreToNumber > 0) {
       nodeSentimentScoreStatus = 'Positive';
       return 0.8;
     } else return 0.2;
