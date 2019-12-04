@@ -9,6 +9,8 @@ const url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 
 const token = process.env.TWITTER_DEV_KEY;
 const Gtoken = process.env.GOOGLE_DEV_KEY;
+const creds = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+
 const perspectiveUrl = `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${Gtoken}`;
 
 const allKeysQuery = db.Q.filter(db.Q.key.startsWith('handle/'));
@@ -182,4 +184,9 @@ export async function deleteLink(url) {
 /* @expose */
 export async function getLinks() {
   return get(LINKS) || [];
+}
+
+/* @expose */
+export async function hasCredentials() {
+  return token && Gtoken && creds;
 }
