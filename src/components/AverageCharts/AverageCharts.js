@@ -19,19 +19,19 @@ export default function AverageCharts({ totals }) {
       <Row>
         <Col xs={6} md={2} className='level-text text-right mt-0'>
           Average Google Sentiment:
-          </Col>
-        <Col xs={6} md={2} >
+        </Col>
+        <Col xs={6} md={2}>
           <GaugeChartRangeGoogle score={googleSentimentScore} index={34} />
         </Col>
         <Col xs={6} md={2} className='level-text text-right mt-0'>
           Average Node Sentiment:
-          </Col>
+        </Col>
         <Col xs={6} md={2}>
           <GaugeChartRangeNode score={nodeSentimentScore} index={43} />
         </Col>
         <Col xs={6} md={2} className='level-text text-right mt-0'>
           Average Toxicity Level
-          </Col>
+        </Col>
         <Col xs={6} md={2} className='justify-content-center'>
           <Progress
             type='circle'
