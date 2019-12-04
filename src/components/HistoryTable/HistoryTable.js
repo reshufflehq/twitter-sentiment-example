@@ -9,7 +9,8 @@ import GuageChartRangeNode from '../GuageChartRange/GuageChartRangeNode';
 import { Progress } from 'react-sweet-progress';
 
 export default function HistoryTable({ history }) {
-  if (!history || history === '') return null;
+  console.log(history);
+  if (!history || history[0] === '') return null;
 
   const historyTable = [];
   for (let index = 0; index < history.length; index++) {
