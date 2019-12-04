@@ -46,7 +46,7 @@ export async function checkHandle(handle) {
     details: [],
   };
 
-  for (var x = 0; x < 5; x++) {
+  for (var x = 0; x < 8; x++) {
     if (results[x]) {
       let clean = results[x].full_text;
       clean = clean.replace(/\B@[a-z0-9_-]+/gi, '');
@@ -140,7 +140,7 @@ async function getGoogleSentiment(text) {
 
 async function getTweets(handle) {
   const results = await fetch(
-    `${url}?screen_name=${handle}&tweet_mode=extended&count=5&exclude_replies=true`,
+    `${url}?screen_name=${handle}&tweet_mode=extended&count=8&exclude_replies=true`,
     {
       method: 'get',
       headers: {
