@@ -6,7 +6,7 @@ const app = express();
 app.set('trust proxy', true);
 
 // DEV ONLY: uncomment the follow line to admin your local or cloud DB (served this path: /dev-only/db-admin  )
-devDBAdmin.initDevDBAdmin(app);
+//devDBAdmin.initDevDBAdmin(app);
 
 app.use(defaultHandler);
 

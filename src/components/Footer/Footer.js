@@ -21,7 +21,7 @@ export default function Footer() {
         <br></br>
         Life is work in Progress - This is an open source project, you can check the source, remix it, and
         run your own at this{' '}
-        <a href='https://reshuffle.com'>Reshuffle template</a>.
+        <a href='https://reshuffle.com/template/twitter-sentiment-analysis'>Reshuffle template</a>.
       </div>
     </footer>
   );
