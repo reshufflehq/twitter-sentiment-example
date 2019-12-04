@@ -19,7 +19,8 @@ export default function GuageChartRangeGoogle({ score, index, width }) {
   };
 
   const fixedNodeScoreToFitChart = score => {
-    if (score === 0) {
+    console.log(`fixedNode got score: ${score} and ${score == 0}`);
+    if (score == 0) {
       nodeSentimentScoreStatus = 'Neutral';
       return 0.5;
     }
@@ -30,7 +31,6 @@ export default function GuageChartRangeGoogle({ score, index, width }) {
   };
 
   const scoreToPrecision = () => {
-    if (score === 0) return 0;
     return `${nodeSentimentScoreStatus}(${Number(score).toPrecision(1)})`;
   };
 
@@ -44,7 +44,7 @@ export default function GuageChartRangeGoogle({ score, index, width }) {
           style={chartStyle}
           colors={DEFAULT_NODE_COLORS}
           arcWidth={0.1}
-          percent={fixedNodeScoreToFitChart()}
+          percent={fixedNodeScoreToFitChart(score)}
           hideText={true}
         />
       </Row>
