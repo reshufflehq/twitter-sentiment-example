@@ -3,6 +3,7 @@
 import '@reshuffle/code-transform/macro';
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import SearchResultItem from '../SearchResultItem/SearchResultItem';
@@ -19,12 +20,16 @@ export default function SearchResult({ result }) {
 
       {details && (
         <Row>
-          <ListGroup variant='flush' className='w-100'>
+          <Table responsive variant='flush' className='w-100'>
+            {/* <ListGroup > */}
             <SearchResultGridHeaders />
-            {details.map((element, index) => (
-              <SearchResultItem key={index} item={element} index={index} />
-            ))}
-          </ListGroup>
+            <tbody>
+              {details.map((element, index) => (
+                <SearchResultItem key={index} item={element} index={index} />
+              ))}
+              {/* </ListGroup> */}
+            </tbody>
+          </Table>
         </Row>
       )}
     </Container>

@@ -1,5 +1,7 @@
 .average-row {
   justify-content: space-between;
+  padding-top: 2rem !important;
+  padding-bottom: 3rem !important;
 }
 
 .average-circle {

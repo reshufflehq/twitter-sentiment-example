@@ -27,5 +27,14 @@ export default function SearchResultGridHeaders() {
         </Col>
       </Row>
     </Container>
+    // <thead>
+    //   <tr className=''>
+    //     <th>#</th>
+    //     <th>Google Sentiment Score</th>
+    //     <th>Node Sentiment Score</th>
+    //     <th>Toxicity level</th>
+    //     <th>Post Content</th>
+    //   </tr>
+    // </thead>
   );
 }

@@ -18,25 +18,6 @@ export default function SearchResultItem({ item, index }) {
   let nodeSentimentScoreStatus = 'Negative';
   let postContent;
 
-  // const fixedNodeScoreToFitChart = score => {
-  //   if (score === 0 || !score) {
-  //     nodeSentimentScoreStatus = 'Neutral';
-  //     return 0.5;
-  //   }
-  //   if (score > 0) {
-  //     nodeSentimentScoreStatus = 'Positive';
-  //     return 0.2;
-  //   } else return 0.8;
-  // };
-
-  // //score range is between -1 t0 1 converted to percents is 0-0.375 (red), 0.375-0.625 (yellow), 0.625-1(green)
-  // const fixedGoogleScoreToFitChart = score => {
-  //   if (score === 0 || !score) {
-  //     return 0;
-  //   }
-  //   return (parseFloat(score) + 1) / 2;
-  // };
-
   if (Array.isArray(item)) {
     googleSentimentScore = item[0][2].score;
     nodeSentimentScore = item[0][1];
@@ -83,6 +64,37 @@ export default function SearchResultItem({ item, index }) {
           </Col>
         </Row>
       </ListGroup.Item>
+      // <tr action variant='light'>
+      //   <td>{index + 1}</td>
+      //   <td>
+      //     <GuageChartRangeGoogle
+      //       score={googleSentimentScore}
+      //       index={index + 1}
+      //       width={'60%'}
+      //     />
+      //   </td>
+      //   <td>
+      //     <GuageChartRangeNode
+      //       score={nodeSentimentScore}
+      //       index={index + 1}
+      //       width={'60%'}
+      //     />
+      //   </td>
+      //   <td>
+      //     {rudeScore && (
+      //       <Progress
+      //         type='circle'
+      //         strokeWidth={3}
+      //         percent={rudeScore}
+      //         width={50}
+      //       />
+      //     )}
+      //   </td>
+      //   <td>
+      //     {' '}
+      //     <h6 className='post-content'> {postContent}</h6>
+      //   </td>
+      // </tr>
     );
   } else {
     return <li key={index}> {item} </li>;
