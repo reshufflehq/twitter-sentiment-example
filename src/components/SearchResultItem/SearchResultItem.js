@@ -79,7 +79,7 @@ export default function SearchResultItem({ item, index }) {
             )}
           </Col>
           <Col className=''>
-            <h6 className=''> {postContent}</h6>
+            <h6 className='post-content'> {postContent}</h6>
           </Col>
         </Row>
       </ListGroup.Item>
