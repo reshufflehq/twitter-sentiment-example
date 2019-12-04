@@ -8,3 +8,7 @@
 .table td {
   vertical-align: middle;
 }
+
+.handle-link {
+  color: #0079AA;
+}

@@ -23,7 +23,7 @@ export default function HistoryTable({ history }) {
     historyTable.push(
       <tr key={key}>
         <td>
-          <a href={url}>{key}</a>
+          <a className={`handle-link`} href={url}>{key}</a>
         </td>
         <td>
           {
