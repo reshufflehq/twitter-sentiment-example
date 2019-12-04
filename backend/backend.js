@@ -69,9 +69,13 @@ export async function checkHandle(handle) {
   }
   analysis.totals.tox = (totalToxicScore / tweetsReviewed).toPrecision(2);
   analysis.totals.sentiment = (totalSentimentScore / tweetsReviewed).toPrecision(2);
-  let googleSum = GoogleSentimentCollection.reduce((a, b) => parseFloat(a) + parseFloat(b), 0);
+  var googleSum = 0;
+  for (var i = 0; i < GoogleSentimentCollection.length; i++) {
+    googleSum = googleSum + parseFloat( GoogleSentimentCollection[i]);
+    googleSum = Math.round(googleSum * 1000)/1000;
+  }
   let googleAvg = googleSum/GoogleSentimentCollection.length;
-  analysis.totals.google_sentiment = googleAvg.toPrecision(2);
+  analysis.totals.google_sentiment = parseFloat(googleAvg.toPrecision(2));
   if (analysis.totals.tox) cacheAnalysis(cleanHandle, analysis);
   return analysis;
 }

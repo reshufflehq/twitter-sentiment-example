@@ -61,9 +61,6 @@ export default function SearchResultItem({ item, index }) {
             }
           </Col>
           <Col className='col-2'>
-            {magnitude > 0 ? Number(magnitude).toPrecision(1) : 0}
-          </Col>
-          <Col className='col-2'>
             {
               <GuageChartRangeNode
                 score={nodeSentimentScore}

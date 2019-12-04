@@ -18,9 +18,6 @@ export default function GuageChartRangeGoogle({ score, index, width }) {
 
   //score range is between -1 t0 1 converted to percents is 0-0.375 (red), 0.375-0.625 (yellow), 0.625-1(green)
   const fixedGoogleScoreToFitChart = () => {
-    if (score === 0 || !score) {
-      return 0;
-    }
     return (parseFloat(score) + 1) / 2;
   };
 

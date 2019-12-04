@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 
 const DEFAULT_NODE_RANGE = [0.375, 0.25, 0.375];
 const ID = 'NODE';
-const DEFAULT_NODE_COLORS = ['#ccffd6', '#feffb3', '#ffb3b3'];
+const DEFAULT_NODE_COLORS = ['#ffb3b3', '#feffb3', '#ccffd6'];
 
 export default function GuageChartRangeGoogle({ score, index, width }) {
   let nodeSentimentScoreStatus = 'Negative';
@@ -25,8 +25,8 @@ export default function GuageChartRangeGoogle({ score, index, width }) {
     }
     if (score > 0) {
       nodeSentimentScoreStatus = 'Positive';
-      return 0.2;
-    } else return 0.8;
+      return 0.8;
+    } else return 0.2;
   };
 
   const scoreToPrecision = () => {
