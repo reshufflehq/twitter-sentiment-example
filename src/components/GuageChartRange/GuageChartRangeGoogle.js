@@ -8,9 +8,9 @@ const DEFAULT_GOOGLE_RANGE = [0.375, 0.25, 0.375];
 const ID = 'google';
 const DEFAULT_GOOGLE_COLORS = ['#ffb3b3', '#feffb3', '#ccffd6'];
 
-export default function GuageChartRangeGoogle({ score, index }) {
+export default function GuageChartRangeGoogle({ score, index, width }) {
   const chartStyle = {
-    width: '90%',
+    width: `${width ? width : '90%'}`,
     color: 'red',
     fontSize: '20px',
     justifyContent: 'center',

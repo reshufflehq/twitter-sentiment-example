@@ -6,6 +6,7 @@ import Table from 'react-bootstrap/Table';
 import './HistoryTable.css';
 import GuageChartRangeGoogle from '../GuageChartRange/GuageChartRangeGoogle';
 import GuageChartRangeNode from '../GuageChartRange/GuageChartRangeNode';
+import { Progress } from 'react-sweet-progress';
 
 export default function HistoryTable({ history }) {
   if (!history || history == '') return null;
@@ -24,9 +25,34 @@ export default function HistoryTable({ history }) {
         <td>
           <a href={url}>{key}</a>
         </td>
-        <td>{tox_score}</td>
-        <td>{<GuageChartRangeGoogle score={google_score} index={key} />}</td>
-        <td>{<GuageChartRangeNode score={sentiment_score} index={key} />}</td>
+        <td>
+          {
+            <Progress
+              type='circle'
+              strokeWidth={5}
+              percent={tox_score}
+              width={50}
+            />
+          }
+        </td>
+        <td>
+          {
+            <GuageChartRangeGoogle
+              width={'50%'}
+              score={google_score}
+              index={key}
+            />
+          }
+        </td>
+        <td>
+          {
+            <GuageChartRangeNode
+              width={'50%'}
+              score={sentiment_score}
+              index={key}
+            />
+          }
+        </td>
       </tr>,
     );
   }

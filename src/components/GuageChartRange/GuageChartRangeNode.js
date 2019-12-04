@@ -8,11 +8,11 @@ const DEFAULT_NODE_RANGE = [0.375, 0.25, 0.375];
 const ID = 'NODE';
 const DEFAULT_NODE_COLORS = ['#ccffd6', '#feffb3', '#ffb3b3'];
 
-export default function GuageChartRangeGoogle({ score, index }) {
+export default function GuageChartRangeGoogle({ score, index, width }) {
   let nodeSentimentScoreStatus = 'Negative';
 
   const chartStyle = {
-    width: '90%',
+    width: `${width ? width : '90%'}`,
     color: 'red',
     fontSize: '20px',
     justifyContent: 'center',
