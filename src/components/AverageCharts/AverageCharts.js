@@ -17,7 +17,7 @@ export default function AverageCharts({ totals }) {
   return (
     <Container className='justify-content-md-center pt-5'>
       <Row>
-        <Col xs={6} md={2} className='level-text text-right mt-0'>
+        <Col xs={6} md={2} className='level-text text-right mt-0 '>
           Average Google Sentiment:
         </Col>
         <Col xs={6} md={2}>
@@ -37,7 +37,7 @@ export default function AverageCharts({ totals }) {
             type='circle'
             strokeWidth={5}
             percent={totals.tox}
-            width={100}
+            width={80}
           />
         </Col>
       </Row>

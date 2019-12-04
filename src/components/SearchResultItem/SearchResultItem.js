@@ -28,73 +28,37 @@ export default function SearchResultItem({ item, index }) {
 
   if (postContent) {
     return (
-      <ListGroup.Item action variant='light'>
-        <Row className='align-items-center text-center'>
-          <Col className='col-1'>
-            <h6 className=''>{index + 1}</h6>
-          </Col>
-          <Col className='col-2'>
-            {
-              <GaugeChartRangeGoogle
-                score={googleSentimentScore}
-                index={index + 1}
-              />
-            }
-          </Col>
-          <Col className='col-2'>
-            {
-              <GaugeChartRangeNode
-                score={nodeSentimentScore}
-                index={index + 1}
-              />
-            }
-          </Col>
-          <Col className='col-2'>
-            {rudeScore && (
-              <Progress
-                type='circle'
-                strokeWidth={3}
-                percent={rudeScore}
-                width={50}
-              />
-            )}
-          </Col>
-          <Col className=''>
-            <h6 className='post-content'> {postContent}</h6>
-          </Col>
-        </Row>
-      </ListGroup.Item>
-      // <tr action variant='light'>
-      //   <td>{index + 1}</td>
-      //   <td>
-      //     <GuageChartRangeGoogle
-      //       score={googleSentimentScore}
-      //       index={index + 1}
-      //       width={'60%'}
-      //     />
-      //   </td>
-      //   <td>
-      //     <GuageChartRangeNode
-      //       score={nodeSentimentScore}
-      //       index={index + 1}
-      //       width={'60%'}
-      //     />
-      //   </td>
-      //   <td>
-      //     {rudeScore && (
-      //       <Progress
-      //         type='circle'
-      //         strokeWidth={3}
-      //         percent={rudeScore}
-      //         width={50}
-      //       />
-      //     )}
-      //   </td>
-      //   <td>
-      //     {' '}
-      //     <h6 className='post-content'> {postContent}</h6>
-      //   </td>
-      // </tr>
+      <tr action variant='light'>
+        <td>{index + 1}</td>
+        <td>
+          <GaugeChartRangeGoogle
+            score={googleSentimentScore}
+            index={index + 1}
+            width={'60%'}
+          />
+        </td>
+        <td>
+          <GaugeChartRangeNode
+            score={nodeSentimentScore}
+            index={index + 1}
+            width={'60%'}
+          />
+        </td>
+        <td>
+          {rudeScore && (
+            <Progress
+              type='circle'
+              strokeWidth={3}
+              percent={rudeScore}
+              width={50}
+            />
+          )}
+        </td>
+        <td>
+          {' '}
+          <h6 className='post-content'> {postContent}</h6>
+        </td>
+      </tr>
     );
   } else {
     return <li key={index}> {item} </li>;
