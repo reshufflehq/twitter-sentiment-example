@@ -19,7 +19,7 @@ export default function GuageChartRangeGoogle({ score, index, width }) {
   };
 
   const fixedNodeScoreToFitChart = score => {
-    if (score == 0) {
+    if (score === 0) {
       nodeSentimentScoreStatus = 'Neutral';
       return 0.5;
     }
