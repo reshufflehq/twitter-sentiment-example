@@ -25,23 +25,19 @@ export default function SearchBar() {
   };
 
   return (
-    <Row className='mr-0 ml-0 pb-4 search-bar-wrapper'>
-      <Col className='pl-0 pr-0'>
-        <Form.Control
-          as='input'
-          type='text'
-          placeholder='Enter Twitter Handle'
-          className='input-control'
-          value={inputValue}
-          onChange={handleChange}
-          onKeyDown={handleChange}
-        />
-      </Col>
-      <Col className='col-1 pl-1 pr-0'>
-        <Button onClick={handleNewCheck} className='search-btn'>
-          Check
-        </Button>
-      </Col>
-    </Row>
+    <div className='search-bar-wrapper'>
+      <Form.Control
+        as='input'
+        type='text'
+        placeholder='Enter Twitter Handle'
+        className='input-control'
+        value={inputValue}
+        onChange={handleChange}
+        onKeyDown={handleChange}
+      />
+      <Button onClick={handleNewCheck} className='search-btn'>
+        Check
+      </Button>
+    </div>
   );
 }

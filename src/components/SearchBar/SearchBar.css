@@ -1,8 +1,6 @@
 .search-bar-wrapper {
-  position: absolute;
-  top: 65%;
-  left: 10%;
-  width: 50%;
+  width: 90%;
+  display: flex;
 }
 
 .search-btn {

@@ -105,7 +105,7 @@ async function getToxicity(text) {
     body: `{
       "comment":{text: "${regex}"},
       "languages": ["en"],
-      "requestedAttributes":{SEVERE_TOXICITY:{}}, 
+      "requestedAttributes":{SEVERE_TOXICITY:{}},
       }`,
   })
     .then(json)
@@ -155,6 +155,7 @@ async function getTweets(handle) {
       return data;
     })
     .catch(function(error) {
+      console.error(error);
       //console.log('Request failed', error);
     });
 

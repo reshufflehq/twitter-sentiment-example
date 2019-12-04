@@ -8,10 +8,10 @@ import './SearchContainer.css';
 export default function SearchContainer() {
   return (
     <Row className='bg-search'>
-      <div>
-        <h2 className='pt-4 pb-4 search-title'>
+      <div className='search-container'>
+        <div className='search-title'>
           How rude are the following handle&apos;s Tweets?
-        </h2>
+        </div>
         <SearchBar />
       </div>
     </Row>
