@@ -10,12 +10,14 @@ import './SearchResultContainer.css';
 
 export default function SearchResultContainer({ result, history }) {
   return (
-    <Row>
-      <Col>
-        <SearchResult result={result}></SearchResult>
-        <HistoryTable history={history}></HistoryTable>
-        <Footer />
-      </Col>
-    </Row>
+    <React.Fragment>
+      <Row>
+        <Col>
+          <SearchResult result={result}></SearchResult>
+          <HistoryTable history={history}></HistoryTable>
+        </Col>
+      </Row>
+      <Footer />
+    </React.Fragment>
   );
 }
