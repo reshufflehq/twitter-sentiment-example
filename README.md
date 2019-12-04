@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/reshufflehq/twitter-sentiment-example.svg?style=svg)](https://circleci.com/gh/reshufflehq/twitter-sentiment-example)
-
 This is a [Reshuffle](https://reshuffle.com/) template.
 
 ## About
