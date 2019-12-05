@@ -39,8 +39,8 @@ export async function checkHandle(handle) {
   }
 
   const results = await getTweets(cleanHandle);
-  //console.log(JSON.stringify(results));
-  if (!results || results.length == 0 || results.errors) return "not found";
+  console.log(JSON.stringify(results));
+  if (!results || results.length == 0 || results.error) return "not found";
   let totalSentimentScore = 0;
   let totalToxicScore = 0;
   let tweetsReviewed = 0;
