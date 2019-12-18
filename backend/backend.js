@@ -173,28 +173,6 @@ async function getTweets(handle) {
   return results;
 }
 
-/**
- * Delete link from the list by link id
- *
- * @param { string } url - link of the image to be deleted
- *
- * @return { array } - updated list with all cats links after the link was deleted
- */
-/* @expose */
-export async function deleteLink(url) {
-  return update(LINKS, (list = []) => list.filter(link => link !== url));
-}
-
-/**
- * List of all cats images urls
- *
- * @return { array } - list with all cats links
- */
-/* @expose */
-export async function getLinks() {
-  return get(LINKS) || [];
-}
-
 /* @expose */
 export async function hasCredentials() {
   return token && Gtoken && googleAppCredentials;
