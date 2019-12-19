@@ -33,10 +33,12 @@ export default function AverageCharts({ totals }) {
           Average Toxicity Level
         </Col>
         <Col xs={6} md={2} className='justify-content-center'>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
             <Progress
               type='circle'
               strokeWidth={5}

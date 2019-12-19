@@ -13,7 +13,8 @@ const ApiKeyNav = props => {
         <Alert.Link
           className='pr-1 pl-1 nav-warning'
           href='https://github.com/reshufflehq/twitter-sentiment-example'
-          target='_blank'>
+          target='_blank'
+        >
           README file
         </Alert.Link>
         for more instructions.
