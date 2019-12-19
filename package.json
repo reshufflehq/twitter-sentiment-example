@@ -36,7 +36,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint backend --fix && eslint src --fix",
-    "check-prettier": "prettier --ignore-path .gitignore -c **/*.js"
+    "check-prettier": "prettier --ignore-path .gitignore -c '**/*.{js,jsx}'"
   },
   "browserslist": {
     "production": [
