@@ -54,7 +54,7 @@ export default function HistoryTable({ history }) {
             />
           }
         </td>
-      </tr>,
+      </tr>
     );
   }
 

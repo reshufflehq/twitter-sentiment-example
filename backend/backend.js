@@ -160,7 +160,7 @@ async function getTweets(handle) {
         'content-type': 'application/json',
         authorization: `Bearer ${token}`,
       },
-    },
+    }
   )
     .then(json)
     .then(function(data) {
